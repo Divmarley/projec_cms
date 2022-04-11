@@ -1,8 +1,36 @@
 
 
 
-<form action="{% url 'blow:login' %}" method="post">
-    {% csrf_token %} 
-    {{form}}
-    <input type="submit" value="login">
-</form>
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'auth.css' %}"> 
+    <title>Document</title>
+
+   
+ 
+    <div class="login-page">
+        <div class="form">
+          <form class="login-form"  action="{% url 'blow:login' %}" method="post">
+            {{form.errors }}
+            {% csrf_token %} 
+            <input type="text" placeholder="name" name="username"/>
+            <input type="password" placeholder="password"  name="password"/> 
+            <button>create</button>
+            <p class="message">Already registered? <a href="{% url 'blow:signup' %}">Sign In</a></p>
+          </form>
+        </div>
+      </div>
+
+      <script>
+
+$('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+      </script>
+ 

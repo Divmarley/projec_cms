@@ -77,7 +77,6 @@ class LoginView(View):
         return render(request, self.template_name, {'form': form})
 
 
-
 class LogoutView(View):
     def get(self,request):
         logout(request)

@@ -1,18 +1,40 @@
-
-<form action="{% url 'blow:signup' %}" method="post"> 
-    {% csrf_token %} 
-    {{ form_key }}
-    <input type="submit" value="signup">
-</form>
+ 
 
 
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'auth.css' %}"> 
+    <title>Document</title>
+
+ 
+    <div class="login-page">
+        <div class="form">
+          
+          <form class="login-form" action="{% url 'blow:signup' %}" method="post">
+            {% csrf_token %} 
+            {{form_key.errors }}
+            <input type="text" placeholder="name" name="username"/>
+            <input type="email" placeholder="Email" name="email"/>
+            <input type="password" placeholder="password"  name="password"/> 
+            <button>create</button> 
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+          </form>
+        </div>
+      </div>
+
+      <script>
+
+      </script>
+ 
 
 
-{{form}}
-<ul>
 
-    {% for x in users_me %}
-    <li>{{x.username}}</li>
-    {% endfor %}
-    
-</ul>
+
+
+
+ 

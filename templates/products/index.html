@@ -1,0 +1,3 @@
+{% for x in product %}
+<li>{{x.name}} ${{x.price}} <a href="{% url 'product:product_delete' x.id %}">delete {{x.id}}</a>  </li>
+{% endfor %}

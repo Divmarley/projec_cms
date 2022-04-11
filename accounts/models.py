@@ -16,4 +16,5 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 # Create your models here.
 
 class User(AbstractUser):
+
     pass
